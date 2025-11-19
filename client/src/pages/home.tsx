@@ -375,15 +375,9 @@ export default function Home() {
                   <h3 className="text-xl font-display font-bold text-foreground mb-3" data-testid={`heading-program-${program.id}`}>
                     {program.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 leading-relaxed" data-testid={`text-program-description-${program.id}`}>
+                  <p className="text-muted-foreground leading-relaxed" data-testid={`text-program-description-${program.id}`}>
                     {program.description}
                   </p>
-                  <Button
-                    className="w-full font-semibold"
-                    data-testid={`button-enroll-${program.id}`}
-                  >
-                    Enroll Now
-                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -511,16 +505,9 @@ export default function Home() {
                   <h3 className="text-xl font-display font-bold text-foreground mb-3 line-clamp-2" data-testid={`heading-blog-${post.id}`}>
                     {post.title}
                   </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-3" data-testid={`text-blog-excerpt-${post.id}`}>
+                  <p className="text-muted-foreground line-clamp-3" data-testid={`text-blog-excerpt-${post.id}`}>
                     {post.excerpt}
                   </p>
-                  <Button
-                    variant="outline"
-                    className="w-full font-semibold"
-                    data-testid={`button-read-more-${post.id}`}
-                  >
-                    Read More
-                  </Button>
                 </CardContent>
               </Card>
             ))}
