@@ -13,7 +13,6 @@ import {
   Trophy,
   ChevronLeft,
   ChevronRight,
-  Play,
   Mail,
   Phone,
 } from "lucide-react";
@@ -33,15 +32,6 @@ import transformBefore1 from "@assets/generated_images/Transformation_before_pho
 import transformAfter1 from "@assets/generated_images/Transformation_after_photo_1_1006215c.png";
 import transformBefore2 from "@assets/generated_images/Transformation_before_photo_2_6b907c1a.png";
 import transformAfter2 from "@assets/generated_images/Transformation_after_photo_2_b5da97b9.png";
-import instaImage1 from "@assets/generated_images/Instagram_post_1_1ce7f414.png";
-import instaImage2 from "@assets/generated_images/Instagram_post_2_3f592df5.png";
-import instaImage3 from "@assets/generated_images/Instagram_post_3_bf7c7f8f.png";
-import instaImage4 from "@assets/generated_images/Instagram_post_4_398c22f8.png";
-import instaImage5 from "@assets/generated_images/Instagram_post_5_0f5c0f0c.png";
-import instaImage6 from "@assets/generated_images/Instagram_post_6_886b98cf.png";
-import instaImage7 from "@assets/generated_images/Instagram_post_7_a5c0c9ef.png";
-import instaImage8 from "@assets/generated_images/Instagram_post_8_362e9de0.png";
-import instaImage9 from "@assets/generated_images/Instagram_post_9_07eb9ffd.png";
 
 const navigation = [
   { name: "Home", href: "#hero" },
@@ -129,18 +119,6 @@ const blogPosts = [
     image: blogImage4,
     category: "Training",
   },
-];
-
-const instagramPosts = [
-  instaImage1,
-  instaImage2,
-  instaImage3,
-  instaImage4,
-  instaImage5,
-  instaImage6,
-  instaImage7,
-  instaImage8,
-  instaImage9,
 ];
 
 const certifications = [
@@ -583,73 +561,6 @@ export default function Home() {
             >
               Work With Me
             </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Media Section */}
-      <section className="py-20 bg-card fade-in-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl sm:text-5xl font-display font-extrabold text-foreground mb-4" data-testid="heading-social">
-              Follow My Journey
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto" data-testid="text-social-description">
-              Daily fitness inspiration, workout videos, and behind-the-scenes content
-            </p>
-          </div>
-
-          {/* Instagram Grid */}
-          <div className="mb-12">
-            <h3 className="text-2xl font-display font-bold text-foreground mb-6 text-center" data-testid="heading-instagram">
-              Instagram Feed
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {instagramPosts.map((image, index) => (
-                <div
-                  key={index}
-                  className="relative aspect-square overflow-hidden rounded-lg group cursor-pointer"
-                  data-testid={`img-instagram-${index}`}
-                >
-                  <img
-                    src={image}
-                    alt={`Instagram post ${index + 1}`}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                  />
-                  <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <Instagram className="h-8 w-8 text-white" />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Video Section */}
-          <div>
-            <h3 className="text-2xl font-display font-bold text-foreground mb-6 text-center" data-testid="heading-videos">
-              Latest Videos
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[1, 2, 3].map((video) => (
-                <div
-                  key={video}
-                  className="relative aspect-video bg-muted rounded-lg overflow-hidden group cursor-pointer"
-                  data-testid={`card-video-${video}`}
-                >
-                  <img
-                    src={blogImage1}
-                    alt={`Video thumbnail ${video}`}
-                    className="w-full h-full object-cover"
-                    data-testid={`img-video-thumbnail-${video}`}
-                  />
-                  <div className="absolute inset-0 bg-black/40 flex items-center justify-center" data-testid={`overlay-video-play-${video}`}>
-                    <div className="bg-primary/90 p-4 rounded-full group-hover:scale-110 transition-transform">
-                      <Play className="h-8 w-8 text-primary-foreground fill-current" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>

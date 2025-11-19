@@ -2,9 +2,9 @@
 
 ## Overview
 
-This is a modern fitness influencer portfolio website built as a full-stack web application. The site showcases fitness programs, transformations, blog content, and social media presence for a fitness coach/influencer. It features a high-energy, action-oriented design inspired by brands like Nike Training Club and Peloton, with bold typography and visual storytelling focused on transformation narratives.
+This is a modern fitness influencer portfolio website built as a **frontend-only single-page application**. The site showcases fitness programs, transformations, blog content, and brand collaborations for a fitness coach/influencer. It features a high-energy, action-oriented design inspired by brands like Nike Training Club and Peloton, with bold typography and visual storytelling focused on transformation narratives.
 
-The application is designed to drive user engagement and program enrollment through compelling visual content and clear calls-to-action.
+The application is designed to drive user engagement and program enrollment through compelling visual content and clear calls-to-action. **This is a static website with no backend functionality, database, or user authentication.**
 
 ## User Preferences
 
@@ -32,60 +32,39 @@ Preferred communication style: Simple, everyday language.
 - Component-driven architecture with reusable UI primitives
 
 **State Management**
-- TanStack Query (React Query) for server state management and data fetching
-- React hooks for local component state
-- Custom hooks for cross-cutting concerns (mobile detection, toast notifications)
+- React hooks for local component state (useState, useEffect)
+- No server state - all content is static
+- Custom hooks for cross-cutting concerns (scroll detection, mobile menu)
 
-**Form Handling**
-- React Hook Form for performant form state management
-- Zod for schema validation via @hookform/resolvers
+**Content Structure**
+- All content is defined as static JavaScript/TypeScript objects within components
+- No API calls, no database queries, no external data fetching
+- Images imported directly via Vite's asset handling system
 
-### Backend Architecture
+### Server Architecture (Development Only)
 
-**Server Framework**
-- Express.js running on Node.js for HTTP server
-- TypeScript for type safety across server code
-- ESM (ES Modules) as the module system
+**Minimal Express Server**
+- Express.js serves the Vite dev server during development
+- Production: Static HTML/CSS/JS files served directly
+- No API routes, no backend logic, no database connections
+- Server only handles static file serving via Vite
 
-**Development vs Production**
-- Development: tsx for running TypeScript directly with hot reload
-- Production: esbuild bundles server code into optimized JavaScript
-- Vite handles frontend bundling in both environments
+### Page Sections
 
-**API Design**
-- RESTful API pattern with routes prefixed under `/api`
-- JSON request/response bodies
-- Request logging middleware for API endpoints
-- Session support infrastructure via connect-pg-simple (PostgreSQL session store)
+The single-page application includes these sections (in order):
+1. **Hero** - Full-screen background with tagline, dual CTAs, and social media icons
+2. **About Me** - Bio, certifications, and portrait photo
+3. **Programs & Services** - 4 program cards (Home Workouts, Gym Plans, Diet Plans, 30-Day Challenge)
+4. **Client Transformations** - Interactive before/after slider with testimonials
+5. **Blog** - 4 blog post cards with categories and excerpts
+6. **Brand Collaborations** - Partner brand names with "Work With Me" CTA
+7. **Contact** - Display-only email, phone, and social media links
+8. **Footer** - Copyright notice
 
-**Request Processing**
-- Raw body capture for webhook verification scenarios
-- JSON and URL-encoded body parsing
-- Credential-based request handling (cookies enabled)
-
-### Data Storage
-
-**Database**
-- PostgreSQL as the primary database (via Neon serverless driver)
-- Drizzle ORM for type-safe database queries and schema management
-- Schema-first approach with TypeScript types inferred from database schema
-
-**Schema Design**
-- Users table with UUID primary keys, unique usernames, and password fields
-- Zod schemas generated from Drizzle schemas for runtime validation
-- Migration system via drizzle-kit for schema versioning
-
-**Data Access Layer**
-- Storage interface pattern (IStorage) for abstraction
-- In-memory implementation (MemStorage) for development/testing
-- Database implementation ready to swap in for production
-- CRUD operations encapsulated behind storage interface
+**Removed Sections:**
+- Social Media Integration (Instagram Feed and Latest Videos) - Previously existed but removed per user request
 
 ### External Dependencies
-
-**Database & Infrastructure**
-- Neon serverless PostgreSQL for scalable, serverless database hosting
-- Database connection via connection string (DATABASE_URL environment variable)
 
 **UI Component Libraries**
 - Radix UI for 20+ accessible component primitives (dialogs, dropdowns, tooltips, etc.)
