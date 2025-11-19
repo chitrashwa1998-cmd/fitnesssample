@@ -3,6 +3,12 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import {
   Menu,
   X,
   Instagram,
@@ -97,6 +103,19 @@ const blogPosts = [
     excerpt: "Build a rock-solid core with these fundamental movements that every fitness enthusiast should master.",
     image: blogImage1,
     category: "Workouts",
+    content: `A strong core is the foundation of all athletic movement and everyday activities. Here are five essential exercises that will help you build a rock-solid midsection:
+
+1. **Planks**: The king of core exercises. Start with 30 seconds and work your way up to 2 minutes. Focus on keeping your body in a straight line from head to heels.
+
+2. **Dead Bugs**: This exercise teaches proper core stability while moving your limbs. Lie on your back and alternate extending opposite arm and leg while keeping your lower back pressed to the floor.
+
+3. **Pallof Press**: A fantastic anti-rotation exercise that builds functional core strength. Use a resistance band or cable machine and press out while resisting rotation.
+
+4. **Bird Dogs**: Similar to dead bugs but performed on all fours. This exercise improves balance and coordination while strengthening your core.
+
+5. **Mountain Climbers**: A dynamic core exercise that also gets your heart rate up. Focus on keeping your hips level and core engaged throughout the movement.
+
+Remember, consistency is key. Perform these exercises 3-4 times per week for best results!`,
   },
   {
     id: 2,
@@ -104,6 +123,25 @@ const blogPosts = [
     excerpt: "Learn the basics of proper nutrition and how to eat for optimal performance and recovery.",
     image: blogImage2,
     category: "Nutrition",
+    content: `Proper nutrition is just as important as your training. Here's what you need to know:
+
+**Macronutrients:**
+- **Protein**: Essential for muscle repair and growth. Aim for 0.8-1g per pound of bodyweight.
+- **Carbohydrates**: Your body's primary energy source. Focus on complex carbs like oats, rice, and sweet potatoes.
+- **Fats**: Important for hormone production. Include healthy fats from nuts, avocados, and olive oil.
+
+**Meal Timing:**
+- Eat protein with every meal
+- Consume carbs around your workouts for energy and recovery
+- Stay hydrated - aim for at least 8 glasses of water daily
+
+**Pre-Workout Nutrition:**
+Eat a balanced meal 2-3 hours before training, or a small snack 30-60 minutes before if needed.
+
+**Post-Workout Nutrition:**
+Within 30-60 minutes after training, consume protein and carbs to kickstart recovery.
+
+Remember, nutrition is highly individual. These are guidelines - adjust based on your goals and how your body responds!`,
   },
   {
     id: 3,
@@ -111,6 +149,29 @@ const blogPosts = [
     excerpt: "Discover why rest days are just as important as training days for achieving your fitness goals.",
     image: blogImage3,
     category: "Wellness",
+    content: `Many people underestimate the importance of recovery. Here's why rest days are crucial:
+
+**Why Recovery Matters:**
+- Your muscles grow during rest, not during workouts
+- Prevents overtraining and burnout
+- Reduces injury risk
+- Improves performance in your next workout
+
+**Types of Recovery:**
+
+1. **Active Recovery**: Light activities like walking, swimming, or yoga
+2. **Complete Rest**: Taking a full day off from structured exercise
+3. **Sleep**: Aim for 7-9 hours per night - this is when most recovery happens
+
+**Recovery Strategies:**
+- **Stretching and Mobility Work**: Helps reduce muscle soreness and improve flexibility
+- **Foam Rolling**: Can help release muscle tension
+- **Proper Nutrition**: Fuel your body with quality foods
+- **Hydration**: Essential for all recovery processes
+- **Stress Management**: Mental recovery is just as important as physical
+
+**How Often Should You Rest?**
+Most people need at least 1-2 complete rest days per week. Listen to your body - if you're constantly fatigued, take an extra day off!`,
   },
   {
     id: 4,
@@ -118,6 +179,42 @@ const blogPosts = [
     excerpt: "Get started with weight training safely and effectively with this comprehensive beginner's guide.",
     image: blogImage4,
     category: "Training",
+    content: `Ready to start your strength training journey? Here's everything you need to know:
+
+**Getting Started:**
+- Start with bodyweight exercises or light weights
+- Focus on learning proper form before adding weight
+- Work with a trainer if possible for the first few sessions
+
+**Basic Movement Patterns:**
+1. **Push** (chest press, shoulder press)
+2. **Pull** (rows, pull-ups)
+3. **Squat** (bodyweight squats, goblet squats)
+4. **Hinge** (deadlifts, hip thrusts)
+5. **Carry** (farmer's walks)
+
+**Beginner Program Structure:**
+- Train 3 days per week
+- Full body workouts
+- 3-4 sets per exercise
+- 8-12 reps per set
+- Rest 1-2 minutes between sets
+
+**Progressive Overload:**
+Gradually increase the challenge by:
+- Adding more weight
+- Doing more reps
+- Doing more sets
+- Reducing rest time
+
+**Common Mistakes to Avoid:**
+- Ego lifting (using too much weight)
+- Neglecting proper form
+- Not warming up
+- Training the same muscles daily
+- Ignoring recovery
+
+Remember: Everyone starts somewhere. Focus on consistency and gradual progress!`,
   },
 ];
 
@@ -132,6 +229,7 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentTransformation, setCurrentTransformation] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [selectedBlog, setSelectedBlog] = useState<typeof blogPosts[0] | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -485,7 +583,8 @@ export default function Home() {
             {blogPosts.map((post) => (
               <Card
                 key={post.id}
-                className="group overflow-hidden hover:-translate-y-2 transition-all duration-300"
+                className="group overflow-hidden hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                onClick={() => setSelectedBlog(post)}
                 data-testid={`card-blog-${post.id}`}
               >
                 <div className="relative h-48 overflow-hidden">
@@ -512,6 +611,34 @@ export default function Home() {
               </Card>
             ))}
           </div>
+
+          {/* Blog Article Dialog */}
+          <Dialog open={!!selectedBlog} onOpenChange={() => setSelectedBlog(null)}>
+            <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
+              <DialogHeader>
+                <DialogTitle className="text-3xl font-display font-bold mb-4">
+                  {selectedBlog?.title}
+                </DialogTitle>
+              </DialogHeader>
+              {selectedBlog && (
+                <div className="space-y-4">
+                  <img
+                    src={selectedBlog.image}
+                    alt={selectedBlog.title}
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                  <Badge variant="secondary">{selectedBlog.category}</Badge>
+                  <div className="prose prose-lg max-w-none">
+                    {selectedBlog.content.split('\n\n').map((paragraph, index) => (
+                      <p key={index} className="text-foreground leading-relaxed mb-4 whitespace-pre-line">
+                        {paragraph}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </DialogContent>
+          </Dialog>
         </div>
       </section>
 
