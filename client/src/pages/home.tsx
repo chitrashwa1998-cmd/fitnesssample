@@ -38,6 +38,10 @@ import transformBefore1 from "@assets/generated_images/Transformation_before_pho
 import transformAfter1 from "@assets/generated_images/Transformation_after_photo_1_1006215c.png";
 import transformBefore2 from "@assets/generated_images/Transformation_before_photo_2_6b907c1a.png";
 import transformAfter2 from "@assets/generated_images/Transformation_after_photo_2_b5da97b9.png";
+import transformBefore3 from "@assets/stock_images/fitness_transformati_dda28da4.jpg";
+import transformAfter3 from "@assets/stock_images/fitness_transformati_dfb882ed.jpg";
+import transformBefore4 from "@assets/stock_images/fitness_transformati_f61043b9.jpg";
+import transformAfter4 from "@assets/stock_images/fitness_transformati_40df4718.jpg";
 
 const navigation = [
   { name: "Home", href: "#hero" },
@@ -93,6 +97,20 @@ const transformations = [
     after: transformAfter2,
     name: "Mike T.",
     testimonial: "Built muscle and strength beyond my expectations. Best investment in myself I've ever made!",
+  },
+  {
+    id: 3,
+    before: transformBefore3,
+    after: transformAfter3,
+    name: "Jessica L.",
+    testimonial: "Transformed my body and mindset in just 6 months. The personalized approach made all the difference!",
+  },
+  {
+    id: 4,
+    before: transformBefore4,
+    after: transformAfter4,
+    name: "David R.",
+    testimonial: "Down 50 pounds and stronger than ever. This program gave me the tools to completely change my lifestyle!",
   },
 ];
 
