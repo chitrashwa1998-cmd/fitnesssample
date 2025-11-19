@@ -263,13 +263,13 @@ export default function Home() {
       {/* Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-transparent"
+          scrolled ? "bg-background/95 backdrop-blur-md shadow-md" : "bg-black/30 backdrop-blur-sm"
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             <div className="flex-shrink-0">
-              <span className="text-2xl font-display font-extrabold text-foreground" data-testid="text-brand-name">
+              <span className={`text-2xl font-display font-extrabold transition-colors ${scrolled ? "text-foreground" : "text-white"}`} data-testid="text-brand-name">
                 ALEX MORGAN
               </span>
             </div>
@@ -280,7 +280,7 @@ export default function Home() {
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-foreground hover:text-primary transition-colors duration-200 font-medium"
+                  className={`hover:text-primary transition-colors duration-200 font-medium ${scrolled ? "text-foreground" : "text-white"}`}
                   data-testid={`link-nav-${item.name.toLowerCase()}`}
                 >
                   {item.name}
@@ -294,6 +294,7 @@ export default function Home() {
                 variant="ghost"
                 size="icon"
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className={scrolled ? "" : "text-white hover:text-white hover:bg-white/20"}
                 data-testid="button-mobile-menu"
               >
                 {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
