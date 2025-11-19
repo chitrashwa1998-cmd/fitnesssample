@@ -38,8 +38,6 @@ import transformBefore1 from "@assets/generated_images/Transformation_before_pho
 import transformAfter1 from "@assets/generated_images/Transformation_after_photo_1_1006215c.png";
 import transformBefore2 from "@assets/generated_images/Transformation_before_photo_2_6b907c1a.png";
 import transformAfter2 from "@assets/generated_images/Transformation_after_photo_2_b5da97b9.png";
-import transformBefore3 from "@assets/generated_images/Transformation_before_photo_3_51c28951.png";
-import transformAfter3 from "@assets/generated_images/Transformation_after_photo_3_45dea280.png";
 import transformBefore4 from "@assets/generated_images/Transformation_before_photo_4_dc41e7fd.png";
 import transformAfter4 from "@assets/generated_images/Transformation_after_photo_4_5ca4ea98.png";
 
@@ -100,13 +98,6 @@ const transformations = [
   },
   {
     id: 3,
-    before: transformBefore3,
-    after: transformAfter3,
-    name: "Jessica L.",
-    testimonial: "Transformed my body and mindset in just 6 months. The personalized approach made all the difference!",
-  },
-  {
-    id: 4,
     before: transformBefore4,
     after: transformAfter4,
     name: "David R.",
