@@ -72,8 +72,8 @@ const programs = [
   },
   {
     id: 4,
-    title: "30-Day Challenge",
-    description: "Transform your habits and body with our intensive month-long program.",
+    title: "Personal Training",
+    description: "One-on-one coaching tailored to your unique goals and fitness level.",
     image: challengeImage,
     icon: Award,
   },
@@ -340,21 +340,25 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 fade-in-up" style={{ animationDelay: "0.2s" }}>
-            <Button
-              size="lg"
-              className="px-8 py-6 text-lg font-semibold hover:scale-105 transition-transform"
-              data-testid="button-view-programs"
-            >
-              View Programs
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="px-8 py-6 text-lg font-semibold bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-transform"
-              data-testid="button-join-challenge"
-            >
-              Join 30-Day Challenge
-            </Button>
+            <a href="#programs">
+              <Button
+                size="lg"
+                className="px-8 py-6 text-lg font-semibold hover:scale-105 transition-transform"
+                data-testid="button-view-programs"
+              >
+                View Programs
+              </Button>
+            </a>
+            <a href="#contact">
+              <Button
+                size="lg"
+                variant="outline"
+                className="px-8 py-6 text-lg font-semibold bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 hover:scale-105 transition-transform"
+                data-testid="button-join-challenge"
+              >
+                Get Started Today
+              </Button>
+            </a>
           </div>
 
           <div className="flex items-center justify-center gap-6 fade-in-up" style={{ animationDelay: "0.3s" }} data-testid="group-hero-social-links">
