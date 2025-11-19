@@ -668,7 +668,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-12 mb-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+          <div className="flex flex-wrap items-center justify-center gap-12 opacity-60 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
             {["Nike", "Adidas", "MyProtein", "GymShark", "Fitbit"].map((brand, index) => (
               <div
                 key={brand}
@@ -678,17 +678,6 @@ export default function Home() {
                 {brand}
               </div>
             ))}
-          </div>
-
-          <div className="text-center">
-            <Button
-              size="lg"
-              variant="outline"
-              className="px-8 py-6 text-lg font-semibold"
-              data-testid="button-work-with-me"
-            >
-              Work With Me
-            </Button>
           </div>
         </div>
       </section>
